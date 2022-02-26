@@ -4,7 +4,11 @@ This is a fork from willem4/sge_tools and I just changed a few things to get it 
 
 ## Getting the qacct_output. 
 
-Use "qacct -j job_id > hoffman2_qacct_output.txt" to get the output into a text file. 
+Use "qacct -j job_id > hoffman2_qacct_output.txt" to get the output into a text file. For example if your job array has the job_id as 1523 you would run:
+
+```bash
+qacct -j job_id > hoffman2_qacct_output.txt
+```
 
 ## Table of contents
 
