@@ -1,10 +1,16 @@
-# SGE Grid engine parsing
+# Parsing Hoffman2 UCLA qacct output
+
+This is a fork from willem4/sge_tools and I just changed a few things to get it to work with UCLA's HPC.
+
+## Getting the qacct_output. 
+
+Use "qacct -j job_id > hoffman2_qacct_output.txt" to get the output into a text file. 
 
 ## Table of contents
 
 - sge_tools.py - Function to convert existing qacct output to a pandas dataframe
 - example_usage.py - An example usage script plot
-- qacct_output.txt - Example qacct output file (use "qacct -j" to generate it)
+- hoffman2_qacct_output.txt - Example qacct output file (use "qacct -j" to generate it)
 
 ## Dependencies
 
