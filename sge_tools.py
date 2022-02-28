@@ -25,6 +25,7 @@ def sge_qacct_parse(file_path):
     with open(file_path, 'r') as f: 
         d = {}
         for line in f:
+            # set_trace()
             if line[0:3] == "===" or line[0:18] == 'Total System Usage':
                 dicts.append(d)
                 d = {}
@@ -34,6 +35,7 @@ def sge_qacct_parse(file_path):
             field = line[0:13].strip()
             value = line[13:-1].strip()
             d[field] = value
+        dicts.append(d)
     # Remove first element in dicts list, which is empty
     del dicts[0]
     
@@ -41,7 +43,6 @@ def sge_qacct_parse(file_path):
     
     # Load data into dataframe and set correct types
     df = pd.DataFrame(dicts)
-    # set_trace()
     floatfields = ['priority',
     'ru_wallclock',
     'ru_utime',
