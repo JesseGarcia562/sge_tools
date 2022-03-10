@@ -7,8 +7,20 @@ This is a fork from willem4/sge_tools and I just changed a few things to get it 
 Use "qacct -j job_id > hoffman2_qacct_output.txt" to get the output into a text file. For example if your job array has the job_id as 1523 you would run:
 
 ```bash
-qacct -j job_id > hoffman2_qacct_output.txt
+qacct -j 1523 > hoffman2_qacct_output.txt
 ```
+
+**Hoffman2 Cluster's accounting records are archived monthly.**  
+
+The additional option "-f" of the qacct command is required to access records in previous months. If some of your job array elements finished in one month and the others in another month, they will not be localized in the same place. 
+
+For example, job  1868491, some of tasks are in the archive file of February and some are in March. The tasks in February can be found by this command:
+
+```bash
+qacct -j 1868491 -f /u/systems/SGE/hoffman2/common/accounting-2022-02 > hoffman2_qacct_output.txt
+```
+
+Note the "accounting-2022-02" file. The "-02" corresponds to February. 
 
 ## Table of contents
 
